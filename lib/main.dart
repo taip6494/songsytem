@@ -1,4 +1,4 @@
-//import 'package:audioplayers/audio_cache.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,19 +7,30 @@ void main() {
       home: Scaffold(
         backgroundColor: Colors.blue,
         body: SafeArea(
-          child: Song(),
+          child: _Song(),
         ),
       ),
     ),
   );
 }
 
-
-
-class Song extends StatelessWidget  {
-  //final player = AudioCache();
+class _Song extends StatefulWidget {
 
   @override
+  State<_Song>  createState() => Song();
+}
+
+
+
+
+
+class Song extends State<_Song>  {
+  late AudioPlayer player;
+
+  @override
+  void initState() {
+    player = AudioPlayer();
+  }
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
     double deviceHeight = MediaQuery.of(context).size.height;
@@ -34,7 +45,8 @@ class Song extends StatelessWidget  {
               height: deviceHeight*1,
               child: TextButton(
                 onPressed: (){
-                  //player.play('note1.wav');
+                 player.setAsset('assets/note1.wav');
+                  player.play();
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.red,
@@ -53,7 +65,8 @@ class Song extends StatelessWidget  {
                   height: deviceHeight*1,
                   child: TextButton(
                     onPressed: (){
-                      //player.play('note1.wav');
+                      player.setAsset('assets/note2.wav');
+                      player.play();
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.orange,
@@ -72,7 +85,7 @@ class Song extends StatelessWidget  {
               height: deviceHeight*1,
               child: TextButton(
                 onPressed: (){
-                  //player.play('note1.wav');
+                  player.setAsset('assets/note3.wav');
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.yellow,
@@ -91,7 +104,7 @@ class Song extends StatelessWidget  {
               height: deviceHeight*1,
               child: TextButton(
                 onPressed: (){
-                  //player.play('note1.wav');
+                  player.setAsset('assets/note4.wav');
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.green,
@@ -110,7 +123,7 @@ class Song extends StatelessWidget  {
               height: deviceHeight*1,
               child: TextButton(
                 onPressed: (){
-                  //player.play('note1.wav');
+                  player.setAsset('assets/note5.wav');
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.greenAccent,
@@ -129,7 +142,7 @@ class Song extends StatelessWidget  {
                  height: deviceHeight*1,
                  child: TextButton(
                    onPressed: (){
-                     //player.play('note1.wav');
+                     player.setAsset('assets/note6.wav');
                    },
                    style: TextButton.styleFrom(
                      backgroundColor: Colors.blue,
@@ -148,7 +161,7 @@ class Song extends StatelessWidget  {
               height: deviceHeight*1,
               child: TextButton(
                 onPressed: (){
-                  //player.play('note1.wav');
+                  player.setAsset('assets/note7.wav');
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.purple,
