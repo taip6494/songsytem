@@ -20,10 +20,6 @@ class _Song extends StatefulWidget {
   State<_Song>  createState() => Song();
 }
 
-
-
-
-
 class Song extends State<_Song>  {
   late AudioPlayer player;
 
