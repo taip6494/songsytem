@@ -22,15 +22,18 @@ class _Song extends StatefulWidget {
 
 class Song extends State<_Song>  {
   late AudioPlayer player;
-  notes(Color? c, String n){
+  notes(Color couleur, String nomfichier){
     return
       Expanded(
         child: TextButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(couleur)
+          ),
           onPressed: () {
-            player.setAsset(n);
+            player.setAsset(nomfichier);
             player.play();
           },
-          child: Container(color: c),
+          child: Container(color: couleur),
         ),
       );
   }
@@ -44,12 +47,12 @@ class Song extends State<_Song>  {
         child: Column(
           children: [
             notes(Colors.red, 'assets/note1.wav'),
-            notes(Colors.orange, 'assets/note1.wav'),
-            notes(Colors.yellow, 'assets/note1.wav'),
-            notes(Colors.green, 'assets/note1.wav'),
-            notes(Colors.greenAccent, 'assets/note1.wav'),
-            notes(Colors.blue, 'assets/note1.wav'),
-            notes(Colors.pinkAccent, 'assets/note1.wav'),
+            notes(Colors.orange, 'assets/note2.wav'),
+            notes(Colors.yellow, 'assets/note3.wav'),
+            notes(Colors.green, 'assets/note4.wav'),
+            notes(Colors.greenAccent, 'assets/note5.wav'),
+            notes(Colors.blue, 'assets/note6.wav'),
+            notes(Colors.pinkAccent, 'assets/note7.wav'),
 
           ],
         ),
